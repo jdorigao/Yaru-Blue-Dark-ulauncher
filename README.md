@@ -3,6 +3,7 @@
 A theme for Ulauncher. Yaru Blue Dark theme.
 
 ## Screenshot
+
 ![](https://uploaddeimagens.com.br/images/003/821/521/original/Screenshot-ulauncher.png?1649628867)
 
 ## Installation

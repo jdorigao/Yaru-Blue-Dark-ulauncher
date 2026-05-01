@@ -1,9 +1,8 @@
-
 /* App Window */
 @define-color bg_color #222222;
 @define-color window_bg @bg_color;
 @define-color window_border_color #393939;
-@define-color prefs_backgroud #aaa;
+@define-color prefs_background #aaa;
 
 /* Input */
 @define-color selected_bg_color #006ad3;
@@ -19,6 +18,7 @@
 @define-color item_name_selected #fefefe;
 @define-color item_shortcut_color #777;
 @define-color item_shortcut_color_sel #ddd;
+@define-color item_shortcut_box_color transparent;
 
 .app {
     background-color: @window_bg;
