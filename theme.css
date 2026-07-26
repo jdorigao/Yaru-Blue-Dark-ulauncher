@@ -7,11 +7,14 @@
 @define-color selected_bg_color #006ad3;
 @define-color selected_fg_color #9cceff;
 @define-color input_color #ddd;
-@define-color caret_color darker(@input_color);
+/* Cor de caret fixa e de alto contraste, mais visível sobre fundo escuro. */
+@define-color caret_color #ffffff;
 
 /* Result items */
 @define-color item_name #ddd;
-@define-color item_text #999;
+/* Contraste aumentado de #999 para #aaa sobre bg_color (#222222),
+   melhorando a legibilidade de acordo com recomendações de acessibilidade (WCAG). */
+@define-color item_text #aaa;
 @define-color item_box_selected #464646;
 @define-color item_text_selected #fff;
 @define-color item_name_selected #fefefe;
@@ -31,15 +34,18 @@
     color: @input_color;
     background-image: none;
     box-shadow: none;
+    caret-color: @caret_color;
 
+    /* Margens negativas usadas para compensar o padding padrão do Ulauncher
+       e alinhar o campo de busca com o ícone/botão à direita.
+       Ajustar com cautela: valores dependem do tema base (extend_theme: dark). */
     margin: -14px -54px -16px -15px;
     padding-left: 15px;
     padding-right: 55px;
 }
 
-/* Selected text in input (GTK < 3.20 compatible) */
-.input *:selected,
-.input *:focus {
+/* Texto selecionado no input (GTK 3.20+, único suportado a partir do Ulauncher v6) */
+.input selection {
     background-color: alpha(@selected_bg_color, 0.9);
     color: @selected_fg_color;
 }
@@ -54,6 +60,8 @@
 .selected.item-box {
     background-color: @item_box_selected;
     border-radius: 12px;
+    /* Fix para renderização de borda em GTK 3.20+ */
+    border: none;
 }
 .selected.item-box .item-text {
     color: @item_text_selected;
